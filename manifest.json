@@ -1,0 +1,24 @@
+{
+  "name": "Android Copy Link",
+  "short_name": "Copy Link",
+  "description": "A simple PWA to copy links on Android devices.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "./copy.svg",
+      "sizes": "any"
+    }
+  ],
+  "share_target": {
+    "action": "/shared-content-receiver/",
+    "method": "GET",
+    "params": {
+      "title": "name",
+      "text": "text",
+      "url": "link"
+    }
+  }
+}

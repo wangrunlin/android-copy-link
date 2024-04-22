@@ -1,0 +1,22 @@
+{
+  "name": "android-copy-link",
+  "version": "1.0.0",
+  "description": "Copy Link in Xiaomi android phone",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html"
+  },
+  "keywords": [
+    "android",
+    "copy-link"
+  ],
+  "author": "Leo Wang, https://wangrunlin.com",
+  "license": "MIT",
+  "dependencies": {
+    "parcel": "^2.12.0"
+  },
+  "devDependencies": {
+    "@parcel/packager-raw-url": "2.12.0",
+    "@parcel/transformer-webmanifest": "2.12.0"
+  }
+}

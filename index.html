@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="manifest" href="./manifest.json">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Andorid Copy Link</title>
+</head>
+
+<body>
+    <h1>Android Copy Link</h1>
+
+    <footer>
+        <p>
+            <a href="http://github.com/wangrunlin/android-copy-link" target="_blank"
+                rel="noopener noreferrer">GitHub</a>
+        </p>
+        <p>
+            &copy; <a href="https://wangrunlin.com" target="_blank">Leo Wang</a>
+        </p>
+    </footer>
+</body>
+
+<script type="module">
+    if (!('serviceWorker' in navigator)) throw new Error('not support service worker');
+
+    try {
+        await navigator.serviceWorker.register(new URL('./service-worker.js', import.meta.url))
+        console.log('Service Worker registered with scope:', registration.scope);
+    } catch (error) {
+        console.error('Service Worker registration failed:', error);
+    }
+</script>
+
+</html>
