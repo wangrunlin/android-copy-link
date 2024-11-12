@@ -10,9 +10,8 @@ async function writeClipboard(text) {
 
 const params = new URLSearchParams(window.location.search);
 
-const sharedLink = params.get("link");
 const sharedName = params.get("name");
-const sharedText = params.get("text");
+const sharedLink = params.get("link") || params.get("text");
 
 // 显示分享的标题
 document.getElementById("title").textContent = sharedName || "未获取到标题";
