@@ -6,55 +6,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>分享内容接收</title>
     <style>
+        :root {
+            --primary-color: #6f42c1;
+            /* 主要颜色：紫色 */
+            --background-color: #f5f5f7;
+            /* 背景颜色：浅灰色 */
+            --text-color: #333;
+            /* 文字颜色：深灰色 */
+            --button-hover-color: #5a32a3;
+            /* 悬停按钮颜色：深紫色 */
+            --button-active-color: #4e2a8a;
+            /* 按钮激活颜色：更深的紫色 */
+            --container-bg: white;
+            /* 容器背景颜色：白色 */
+            --container-shadow: rgba(0, 0, 0, 0.1);
+            /* 容器阴影颜色 */
+        }
+
         body {
             margin: 0;
             font-family: system-ui, -apple-system, sans-serif;
             display: grid;
             place-items: center;
             min-height: 100vh;
-            background: #f5f5f7;
+            background: var(--background-color);
         }
 
         .container {
-            background: white;
+            background: var(--container-bg);
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--container-shadow);
             width: 90%;
-            max-width: 400px;
+            max-width: 350px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                padding: 30px;
+                max-width: 400px;
+            }
         }
 
         .title {
-            font-size: 16px;
-            color: #333;
+            font-size: 1.5rem;
+            color: var(--text-color);
             margin-bottom: 16px;
             word-break: break-all;
+        }
+
+        .link {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
         }
 
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         button {
             padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background: white;
-            font-size: 14px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 16px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
-            background: #f5f5f5;
+            background: var(--button-hover-color);
+        }
+
+        button:active {
+            background: var(--button-active-color);
+            transform: translateY(1px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .custom-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+            flex-direction: column;
+        }
+
+        .custom-alert button {
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .custom-alert button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        .footer {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #666;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <div class="description">您分享的内容如下：</div>
         <div id="title" class="title"></div>
         <div id="link" class="link"></div>
         <div class="buttons">
@@ -62,6 +166,20 @@
             <button id="copyTitleAndLink">复制标题 + 链接</button>
             <button id="copyMarkdown">复制为 Markdown</button>
         </div>
+        <footer class="footer">
+            <div class="description">
+                点击任意按钮后，将内容写入剪切板，页面将会在 3 秒后自动关闭。
+            </div>
+            <div class="powered-by">
+                Powered by <a href="https://github.com/wangrunlin/android-copy-link" target="_blank">Android Copy
+                    Link</a>
+            </div>
+        </footer>
+    </div>
+    <div class="custom-alert hidden">
+        <p class="custom-alert-title">写入剪切板成功！</p>
+        <div class="custom-alert-content" />
+        <button class="custom-alert-close" onclick="window.close()">关闭页面</button>
     </div>
     <script src="./index.js"></script>
 </body>
