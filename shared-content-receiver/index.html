@@ -1,16 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shared-content-receiver</title>
+    <title>分享内容接收</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background: #f5f5f7;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 16px;
+            word-break: break-all;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        button {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #f5f5f5;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>shared-content-receiver</h1>
+    <div class="container">
+        <div id="title" class="title"></div>
+        <div class="buttons">
+            <button id="copyLink">仅复制链接</button>
+            <button id="copyTitleAndLink">复制标题 + 链接</button>
+            <button id="copyMarkdown">复制为 Markdown</button>
+        </div>
+    </div>
+    <script src="./index.js"></script>
 </body>
-
-<script src="./index.js"></script>
 
 </html>

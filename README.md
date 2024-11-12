@@ -8,7 +8,7 @@
 
 Experience the functionality of Android Copy Link in action:
 
-https://github.com/wangrunlin/android-copy-link/assets/64216877/8db217c3-e043-4aa5-9548-c87c68e5fe0a
+<https://github.com/wangrunlin/android-copy-link/assets/64216877/8db217c3-e043-4aa5-9548-c87c68e5fe0a>
 
 ## Key Features
 
