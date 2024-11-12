@@ -4,7 +4,7 @@
   "description": "Copy Link in Xiaomi android phone",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html"
+    "dev": "http-server ."
   },
   "keywords": [
     "android",
@@ -13,6 +13,7 @@
   "author": "Leo Wang, https://wangrunlin.com",
   "license": "MIT",
   "dependencies": {
+    "http-server": "^14.1.1",
     "parcel": "^2.12.0"
   },
   "devDependencies": {
