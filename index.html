@@ -1,28 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="manifest" href="./manifest.json">
-
     <link rel="stylesheet" href="./style.css">
 
-    <title>Andorid Copy Link</title>
+    <title>Android Copy Link</title>
 </head>
 
 <body>
-    <h1>Android Copy Link</h1>
+    <header>
+        <h1>Android Copy Link</h1>
+        <p>快速复制链接，轻松分享内容</p>
+    </header>
+
+    <section id="introduction">
+        <h2>介绍</h2>
+        <p>Android Copy Link 是一个简单易用的工具，帮助用户快速复制链接和分享内容。无论是分享网页、文章还是其他链接，这款应用都能让你轻松完成。</p>
+    </section>
+
+    <section id="features">
+        <h2>功能亮点</h2>
+        <ul>
+            <li>✨ 一键复制链接</li>
+            <li>📄 复制标题和链接</li>
+            <li>📋 支持 Markdown 格式</li>
+            <li>🔒 安全可靠，保护您的隐私</li>
+        </ul>
+    </section>
+
+    <section id="usage">
+        <h2>使用方法</h2>
+        <ol>
+            <li>打开应用并分享您想要复制的链接。</li>
+            <li>点击“仅复制链接”按钮以复制链接。</li>
+            <li>点击“复制标题 + 链接”按钮以复制标题和链接。</li>
+            <li>点击“复制为 Markdown”按钮以复制格式化的链接。</li>
+            <li>在需要的地方粘贴链接即可。</li>
+        </ol>
+    </section>
+
+    <section id="demo">
+        <h2>演示视频</h2>
+        <video controls width="600">
+            <source
+                src="https://github.com/wangrunlin/android-copy-link/assets/64216877/8db217c3-e043-4aa5-9548-c87c68e5fe0a"
+                type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section id="testimonials">
+        <h2>用户反馈</h2>
+        <blockquote>
+            <p>“这个应用真是太方便了！我可以快速复制任何链接，节省了很多时间。”</p>
+            <footer>— 用户 A</footer>
+        </blockquote>
+        <blockquote>
+            <p>“我喜欢它的简洁设计和易用性，强烈推荐给我的朋友们！”</p>
+            <footer>— 用户 B</footer>
+        </blockquote>
+    </section>
 
     <footer>
-        <p>
-            <a href="http://github.com/wangrunlin/android-copy-link" target="_blank"
-                rel="noopener noreferrer">GitHub</a>
-        </p>
-        <p>
-            &copy; <a href="https://wangrunlin.com" target="_blank">Leo Wang</a>
-        </p>
+        <div class="footer-content">
+            <p>
+                <a href="http://github.com/wangrunlin/android-copy-link" target="_blank"
+                    rel="noopener noreferrer">GitHub</a> |
+                <a href="https://twitter.com/wangrunlin_" target="_blank" rel="noopener noreferrer">Twitter</a>
+            </p>
+            <p>
+                &copy; <a href="https://wangrunlin.com" target="_blank">Leo Wang</a>
+                <script>
+                    const packageJson = require('./package.json');
+                    document.write(`| Version ${packageJson.version}`);
+                </script>
+            </p>
+        </div>
     </footer>
 </body>
 
@@ -30,7 +87,7 @@
     if (!('serviceWorker' in navigator)) throw new Error('not support service worker');
 
     try {
-        await navigator.serviceWorker.register(new URL('./service-worker.js', import.meta.url))
+        const registration = await navigator.serviceWorker.register(new URL('./service-worker.js', import.meta.url));
         console.log('Service Worker registered with scope:', registration.scope);
     } catch (error) {
         console.error('Service Worker registration failed:', error);
